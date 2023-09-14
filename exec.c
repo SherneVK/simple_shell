@@ -1,33 +1,16 @@
 #include "shell.h"
 
 /**
- * exec - executes commands
- * @args: arguments
+ * exec - map if command is a builtin or a process
+ * @args: command and its flags
  *
- * Return: Always 0.
-*/
+ * Return: 1 on sucess, 0 otherwise
+ */
 int exec(char **args)
 {
-	pid_t child_pid;
-	int status;
-
-	child_pid = fork();
-	if (child_pid == -1)
+	if (args[0] == NULL)
 	{
-		perror("Error");
-		return (1);
+		return (-1);
 	}
-	if (child_pid == 0)
-	{
-		if (execve(args[0], args, NULL) == -1)
-		{
-			perror("./shell");
-			exit(1);
-		}
-	}
-	else
-	{
-		wait(&status);
-	}
-	return (0);
+	return (process(args));
 }

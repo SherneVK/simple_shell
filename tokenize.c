@@ -27,7 +27,7 @@ char **tokenize(char *str)
 		}
 		tokens[i] = token;
 		i++;
-		if (i > buff)
+		if (i >= buff)
 		{
 			buff += buff;
 			tokens = realloc(tokens, buff * sizeof(char *));

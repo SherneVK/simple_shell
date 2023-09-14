@@ -12,13 +12,19 @@
 #define DELIM " \t\r\n\a\""
 
 /*---PROTOTYPES---*/
+/*---shell.c---*/
+void interactive_mode(void);
+void non_interactive_mode(void);
+
+/*---interactive.c---*/
 char *read_line(void);
 char **tokenize(char *str);
 int exec(char **args);
 
-/* execute_args */
+/*---fork.c---*/
 int process(char **args);
 
+/*--non_interactive.c---*/
 char *read_stream(void);
 
 #endif

@@ -7,42 +7,13 @@
  */
 int main(void)
 {
-	size_t n = 0;
-	char *lineptr = NULL, **args;
-	ssize_t read;
-	int interactive = isatty(STDIN_FILENO);
-
-	if (interactive)
+	if (isatty(STDIN_FILENO) == 1)
 	{
-		while (1)
-		{
-			write(1, "#cisfun$ ", 9);
-			read = getline(&lineptr, &n, stdin);
-			if (read == -1)
-			{
-				write(1, "\n", 1);
-				free(lineptr);
-				exit(0);
-			}
-			lineptr[read - 1] = '\0';
-			args = tokenize(lineptr);
-			if (args[0] == NULL)
-				continue;
-
-			exec(args);
-		}
+		interactive_mode();
 	}
 	else
 	{
-		while (getline(&lineptr, &n, stdin) > 0)
-		{
-			args = tokenize(lineptr);
-			if (args[0] == NULL)
-				continue;
-
-			exec(args);
-		}
-		free(lineptr);
+		non_interactive_mode();
 	}
 	return (0);
 }
