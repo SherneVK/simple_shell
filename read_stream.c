@@ -37,6 +37,7 @@ char *read_stream(void)
 		i++;
 		if (i >= buffer)
 		{
+			buffer += buffer;
 			lineptr = realloc(lineptr, buffer);
 			if (lineptr == NULL)
 			{
