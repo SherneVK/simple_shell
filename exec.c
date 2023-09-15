@@ -12,5 +12,11 @@ int exec(char **args)
 	{
 		return (-1);
 	}
+
+	if (strcmp(args[0], "exit") == 0)
+	{
+		exit(0);
+	}
+
 	return (process(args));
 }
