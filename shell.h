@@ -10,7 +10,6 @@
 
 /*---MACROS---*/
 #define DELIM " \t\r\n\a\""
-
 extern char **environ;
 
 /*---PROTOTYPES---*/
@@ -23,20 +22,17 @@ char *read_line(void);
 char **tokenize(char *str);
 int exec(char **args);
 
-/*---fork.c---*/
+/*---execute args---*/
 int process(char **args);
+int builtins_list(void);
 
 /*--non_interactive.c---*/
 char *read_stream(void);
 
-/*---custom_shell.c---*/
-int execute_command(char *command);
-int main(void);
-
-/*--string_utils.c--*/
-size_t custom_strlen(const char *str);
-int custom_strcmp(const char *s1, const char *s2);
-void print_environment(void);
+/*---builtins---*/
+int custom_cd(char **args);
+int custom_exit(char **args);
+int custom_env(char **args);
 
 
 #endif

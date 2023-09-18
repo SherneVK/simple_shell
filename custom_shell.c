@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-
-#define MAX_PATH_LEN 1024
+#include "shell.h"
 
 /**
  * execute_command - Execute a command
@@ -48,5 +43,5 @@ int execute_command(char *command)
 
 	free(command_copy);
 
-	return (-1);
+	return (0);
 }
