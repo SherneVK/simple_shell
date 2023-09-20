@@ -8,14 +8,12 @@
 */
 int custom_exit(char **args)
 {
-	/* exit with status*/
-	if (args[1])
+	int status = 0;
+
+	if (args[1] != NULL)
 	{
-		return (atoi(args[1]));
+		status =  atoi(args[1]);
 	}
-	/* exit success*/
-	else
-	{
-		return (0);
-	}
+
+	exit(status);
 }

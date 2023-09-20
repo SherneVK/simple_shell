@@ -12,17 +12,9 @@ char *read_line(void)
 
 	if (getline(&lineptr, &n, stdin) == -1)
 	{
-		if (feof(stdin))
-		{
-			free(lineptr);
-			exit(EXIT_SUCCESS);
-		}
-		else
-		{
-			free(lineptr);
-			perror("Error reading line form stream");
-			exit(EXIT_FAILURE);
-		}
+		free(lineptr);
+		perror("Error reading line form stream");
+		exit(EXIT_FAILURE);
 	}
 	return (lineptr);
 }

@@ -16,7 +16,7 @@ int process(char **args)
 	{
 		if (execvp(args[0], args) == -1)
 		{
-			perror("Process error");
+			perror("execvp error");
 		}
 		exit(EXIT_FAILURE);
 	}
