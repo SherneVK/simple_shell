@@ -38,7 +38,7 @@ char *read_stream(void)
 		if (i >= buffer)
 		{
 			buffer += buffer;
-			lineptr = realloc(lineptr, buffer);
+			lineptr = realloc(lineptr, buffer * sizeof(char));
 			if (lineptr == NULL)
 			{
 				fprintf(stderr, "Reallocation error");
