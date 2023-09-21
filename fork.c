@@ -8,7 +8,7 @@
  */
 int process(char **args)
 {
-	pid_t pid;
+pid_t pid;
 	int status;
 
 	pid = fork();
